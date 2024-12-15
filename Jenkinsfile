@@ -1,6 +1,11 @@
 pipeline {
-    agent { label 'npm-agent-logan' }
+    agent { label 'linux' }
     stages {
+        stage('SCM'){
+            steps {
+                git branch: 'main', url: 'https://github.com/bobbybabu007/jenkins-exercise-nodejs-pipeline.git'
+            }
+        }
         stage('Build') { 
             steps {
                 sh 'printenv' 
